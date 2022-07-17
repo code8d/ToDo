@@ -85,3 +85,10 @@ function makeTodo() {
 
     }   else enterInput.placeholder = 'Enter todo...';
 }
+
+let todos = [];
+
+save.addEventListener('click', () => {
+
+    todos = divsArr.slice()
+})
