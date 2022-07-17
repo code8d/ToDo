@@ -31,7 +31,6 @@ const deleteBtns = document.getElementsByClassName('todo__delete')
 
 const btnsArr = [];
 const divsArr = []
-const spanArr = []
 
 function randomId() {
     return Math.random()
@@ -39,23 +38,17 @@ function randomId() {
 
 function makeTodo() {
 
-    if (enterInput.value != '' && enterInput.value != ' ') {
+    if (enterInput.value !== '' && enterInput.value !== ' ') {
         let div = document.createElement('div');
         div.classList.add('menu-todo-block');
         todoBlocks[0].appendChild(div)
     
         divsArr.push(div)
-        console.log(divsArr)
 
         let p = document.createElement('p');
         p.classList.add('todo__text')
         div.appendChild(p)
     
-        let span = document.createElement('span');
-        span.classList.add('todo__number');
-        span.textContent = `${btnsArr.length + 1}.`
-
-        p.appendChild(span)
         p.innerHTML += enterInput.value;
     
         let a = document.createElement('a');
@@ -71,7 +64,6 @@ function makeTodo() {
         img.src = 'img/delete.png'
         a.appendChild(img)
         
-        spanArr.push(span.textContent)
         btnsArr.push(a)
 
         btnsArr.forEach(btn => btn.addEventListener('click', () => {
@@ -87,16 +79,9 @@ function makeTodo() {
 
                     divsArr[i].remove()
                     divsArr.splice(index, 1)
-
-                    spanArr.splice(index, 1)
                 }
-
-
-
             }
         }))
 
-        console.log(spanArr)
-        console.log(btnsArr)
-    }   else enterInput.placeholder = 'Enter todo';
+    }   else enterInput.placeholder = 'Enter todo...';
 }
