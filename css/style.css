@@ -25,11 +25,14 @@ body {
     margin: 0 0 30px 0;
 }
 .active {
-    color: #923CD6!important;
+    color: #31D399!important;
     background: #fff!important;
 }
 .show {
     display: flex!important;
+}
+.animation__show {
+    animation: animShow 1s ease;
 }
 /*  */
 .wrapper {
@@ -72,11 +75,13 @@ body {
     color: #fff;
 }
 .main__menu-block {
+    position: relative;
     display: none;
     flex-direction: column;
     align-items: center;
     padding-top: 50px;
     padding-bottom: 60px;
+    animation: show 1s ease;
 }
 .menu__title {
 }
@@ -107,7 +112,7 @@ body {
     margin-bottom: 30px;
 }
 .enter__input {
-    width: 100%;
+    width: 445px;
     height: 50px;
     font-size: 20px;
     padding: 0 75px 0 25px;
@@ -115,7 +120,10 @@ body {
     outline: none;
     box-sizing: border-box;
     background: rgba(255, 255, 255, .25);
-    box-shadow: 0 2px 5px 1px rgba(165, 165, 165, 0.1);
+    box-shadow: 0 2px 5px 1px rgba(235, 235, 235, 0.1);
+    color: #fff;
+}
+::placeholder {
     color: #fff;
 }
 .enter__input:focus {
@@ -168,6 +176,7 @@ body {
     margin: 0;
 }
 .todo__number {
+    margin-right: 10px;
 }
 
 .checkbox {
@@ -232,6 +241,9 @@ body {
     margin-top: 30px;
     box-shadow: 2px 3px 5px 1px rgba(70, 70, 70, 0.1);
 }
+label {
+    cursor: pointer;
+}
 @media (max-width: 1024px) {
     .menu-block_completed {
         flex-direction: column;
@@ -240,7 +252,20 @@ body {
         margin: 0 0 60px 0;
     }
 }
-@media (max-width: 550px) {
+@media (max-width: 550px) { 
+    .header-container {
+        padding: 0;
+    }
+    .header__todo-block {
+        width: 100%;
+    }
+    .header__todo {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex: 0 1 100%;
+        padding: 0;
+    }
     .menu-todo-block {
         width: auto;
     }
@@ -253,5 +278,25 @@ body {
     .subtitle {
         text-align: center;
         font-size: 40px;
+    }
+}
+@keyframes show {
+    0% {
+        top: -50px;
+        opacity: .3;
+    }
+    100% {
+        top: 0;
+        opacity: 1;
+    }
+}
+@keyframes animShow {
+    0% {
+        top: 0;
+        opacity: .1;
+    }
+    100% {
+        top: 65px;
+        opacity: 0.3;
     }
 }
