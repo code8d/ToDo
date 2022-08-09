@@ -87,8 +87,38 @@ function makeTodo() {
 }
 
 let todos = [];
+let todosChildren = []
 
 save.addEventListener('click', () => {
 
     todos = divsArr.slice()
+
+    for (let i = 0; i < todos.length; i++) {
+
+        todoBlocks[1].appendChild(todos[i])
+
+        console.log(todos[i])
+
+        let input = document.createElement('input');
+        input.type = 'checkbox'
+        input.class = 'checkbox'
+        input.id = 'checkbox1'
+
+        todos[i].appendChild(input)
+
+        let label = document.createElement('label');
+        label.for = input.id
+        label.class = 'todo__text'
+        label.classList.add('my-todo__text')
+
+        todos[i].appendChild(label)
+
+        let span = document.createElement('span')
+        span.class = 'todo__number'
+        span.textContent = '1.';
+        
+        label.appendChild(span)
+    }
+
+
 })
